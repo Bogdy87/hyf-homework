@@ -142,9 +142,4 @@ console.log(
 const startupName = firstWords[1] + " " + secondWords[6];
 
 console.log(
-  "FIXED-The startup: " +
-    startupName +
-    " contains " +
-    startupName.length +
-    " characters."
-);
+  `FIXED-The startup: ${startupName} contains ${startupName.length} characters.`);
