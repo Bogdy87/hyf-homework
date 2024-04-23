@@ -9,16 +9,16 @@
           Age-ify (A future age calculator)*/
 //******************************************************************
 
-let yearOfBirth = 1987;
-let yearFuture = 2059;
-let age = yearFuture - yearOfBirth;
+const yearOfBirth = 1987;
+const yearFuture = 2059;
+const age = yearFuture - yearOfBirth;
 console.log("You will be " + age + " years old in " + yearFuture);
 
 /*Goodboy-Oldboy (A dog age calculator)*/
 
 const dogYearOfBirth = 2020;
-let dogYearFuture = 2024;
-let humanAge = dogYearFuture - dogYearOfBirth;
+const dogYearFuture = 2024;
+const humanAge = dogYearFuture - dogYearOfBirth;
 
 let dogAge;
 
@@ -30,9 +30,9 @@ if (humanAge === 1) {
   dogAge = 24 + (humanAge - 2) * 5;
 }
 
-let shouldShowResultInDogYears = true;
+const shouldShowResultInDogYears = true;
 
-let dogYear = shouldShowResultInDogYears ? dogAge : humanAge;
+const dogYear = shouldShowResultInDogYears ? dogAge : humanAge;
 console.log(
   "Your dog will be ",
   dogYear,
