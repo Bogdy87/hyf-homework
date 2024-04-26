@@ -24,16 +24,10 @@ const dogAge = humanAge * 7
 
 
 
-const shouldShowResultInDogYears = false;
+const shouldShowResultInDogYears = true;
 
-const dogYear = shouldShowResultInDogYears ? dogAge : humanAge;
-console.log(
-  "Your dog will be ",
-  dogYear,
-  shouldShowResultInDogYears
-    ? " dog years old in " + dogYearFuture
-    : "human year old in " + dogYearFuture
-);
+const dogYear = shouldShowResultInDogYears ? dogAge + ' dog' : humanAge + ' human';
+console.log("Your dog will be " + dogYear + " years old in " + dogYearFuture);
 
 /*Housey pricey (A house price estimator)*/
 
@@ -136,4 +130,4 @@ console.log(
 const startupName = firstWords[1] + " " + secondWords[6];
 
 console.log(
-  `FIXED-The startup: ${startupName} contains ${startupName.length} characters.`);
+  `FIXED-The startup: ${startupName} contains ${startupName.length} characters.`)
