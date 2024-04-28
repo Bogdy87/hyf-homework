@@ -16,86 +16,74 @@ console.log("You will be " + age + " years old in " + yearFuture);
 
 /*Goodboy-Oldboy (A dog age calculator)*/
 
-const dogYearOfBirth = 2020;
-const dogYearFuture = 2024;
+const dogYearOfBirth = 2017;
+const dogYearFuture = 2027;
 const humanAge = dogYearFuture - dogYearOfBirth;
 
-let dogAge;
+const dogAge = humanAge * 7
 
-if (humanAge === 1) {
-  dogAge = 15;
-} else if (humanAge === 2) {
-  dogAge = 24;
-} else {
-  dogAge = 24 + (humanAge - 2) * 5;
-}
+
 
 const shouldShowResultInDogYears = true;
 
-const dogYear = shouldShowResultInDogYears ? dogAge : humanAge;
-console.log(
-  "Your dog will be ",
-  dogYear,
-  shouldShowResultInDogYears
-    ? " dog years old in " + dogYearFuture
-    : "human year old in " + dogYearFuture
-);
+const dogYear = shouldShowResultInDogYears ? dogAge + ' dog' : humanAge + ' human';
+console.log("Your dog will be " + dogYear + " years old in " + dogYearFuture);
 
 /*Housey pricey (A house price estimator)*/
 
 // Peter's house details
-const peterWidth = 8;
-const peterDepth = 10;
-const peterHeight = 10;
+const peterHouseWidth = 8;
+const peterHouseDepth = 10;
+const peterHouseHeight = 10;
 const peterGardenSize = 100;
-const peterActualPrice = 2500000;
+const peterActualHousePrice = 2500000;
 
 // Calculate Peter's estimated price
-const peterVolumeInMeters = peterWidth * peterDepth * peterHeight;
-const peterEstimatedPrice =
-  peterVolumeInMeters * 2.5 * 1000 + peterGardenSize * 300;
+const peterHouseVolumeInMeters = peterHouseWidth * peterHouseDepth * peterHouseHeight;
+const peterEstimatedHousePrice =
+  peterHouseVolumeInMeters * 2.5 * 1000 + peterGardenSize * 300;
 
 // Output Peter's result
-if (peterActualPrice > peterEstimatedPrice) {
+if (peterActualHousePrice > peterEstimatedHousePrice) {
   console.log(
-    "Peter is paying too much. Estimated price is $" + peterEstimatedPrice
+    "Peter is paying too much. Estimated price is $" + peterEstimatedHousePrice
   );
-} else if (peterActualPrice < peterEstimatedPrice) {
+} else if (peterActualHousePrice < peterEstimatedHousePrice) {
   console.log(
-    "Peter is paying too little. Estimated price is $" + peterEstimatedPrice
+    "Peter is paying too little. Estimated price is $" + peterEstimatedHousePrice
   );
 } else {
   console.log(
     "Peter is paying the right amount. Estimated price is $" +
-      peterEstimatedPrice
+      peterEstimatedHousePrice
   );
 }
 
 // Julia's house details
-const juliaWidth = 5;
-const juliaDepth = 11;
-const juliaHeight = 8;
+const juliaHouseWidth = 5;
+const juliaHouseDepth = 11;
+const juliaHouseHeight = 8;
 const juliaGardenSize = 70;
 const juliaActualPrice = 1000000;
 
 // Calculate Julia's estimated price
-const juliaVolumeInMeters = juliaWidth * juliaDepth * juliaHeight;
-const juliaEstimatedPrice =
-  juliaVolumeInMeters * 2.5 * 1000 + juliaGardenSize * 300;
+const juliaHouseVolumeInMeters = juliaHouseWidth * juliaHouseDepth * juliaHouseHeight;
+const juliaHouseEstimatedPrice =
+  juliaHouseVolumeInMeters * 2.5 * 1000 + juliaGardenSize * 300;
 
 // Output Julia's result
-if (juliaActualPrice > juliaEstimatedPrice) {
+if (juliaActualPrice > juliaHouseEstimatedPrice) {
   console.log(
-    "Julia is paying too much. Estimated price is $" + juliaEstimatedPrice
+    "Julia is paying too much. Estimated price is $" + juliaHouseEstimatedPrice
   );
-} else if (juliaActualPrice < juliaEstimatedPrice) {
+} else if (juliaActualPrice < juliaHouseEstimatedPrice) {
   console.log(
-    "Julia is paying too little. Estimated price is $" + juliaEstimatedPrice
+    "Julia is paying too little. Estimated price is $" + juliaHouseEstimatedPrice
   );
 } else {
   console.log(
     "Julia is paying the right amount. Estimated price is $" +
-      juliaEstimatedPrice
+      juliaHouseEstimatedPrice
   );
 }
 
@@ -142,4 +130,4 @@ console.log(
 const startupName = firstWords[1] + " " + secondWords[6];
 
 console.log(
-  `FIXED-The startup: ${startupName} contains ${startupName.length} characters.`);
+  `FIXED-The startup: ${startupName} contains ${startupName.length} characters.`)
