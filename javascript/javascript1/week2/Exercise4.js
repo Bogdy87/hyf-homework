@@ -1,8 +1,8 @@
 // Simple for loop
 // Create a for loop that logs out the numbers from 74 - 98
 
-for  (let i = 74; i <= 98; i++) {
-    console.log(i);
+for (let i = 74; i <= 98; i++) {
+  console.log(i);
 }
 
 // For loop in a function
@@ -15,12 +15,13 @@ for  (let i = 74; i <= 98; i++) {
 // // hello
 // // hello
 
-function logString (stringToLog, numberOfTimes) {
-  for(i=0; i<numberOfTimes; i++){
-      console.log(stringToLog)}
+function logString(stringToLog, numberOfTimes) {
+  for (i = 0; i < numberOfTimes; i++) {
+    console.log(stringToLog);
+  }
 }
 
-logString ('hello', 3);
+logString("hello", 3);
 
 // Imagine we work at a company. Peter from the HR department wants us to send out a couple of emails to some recepients. The only problem is that he sent us the email in a weird format: benjamin@gmail.com|peter@gmail.com|hans@gmail.com|ahmad@gmail.com|sana@gmail.com|virgeen@gmail.com|mohammed@gmail.com
 
@@ -36,15 +37,15 @@ logString ('hello', 3);
 
 // This function emulates sending emails to receipients
 function sendEmailTo(recepient) {
-    // But really it only logs out a string
-    console.log("email sent to " + recepient);
-  }
-  
-  const allEmails =
-    "benjamin@gmail.com|peter@gmail.com|hans@gmail.com|ahmad@gmail.com|sana@gmail.com|virgeen@gmail.com|mohammed@gmail.com";
-  const allEmailsArray = allEmails.split("|");
-  
-  for (let i = 0; i < allEmailsArray.length; i++) {
-    const email = allEmailsArray[i];
-    sendEmailTo(email);
-  }
+  // But really it only logs out a string
+  console.log("email sent to " + recepient);
+}
+
+const allEmails =
+  "benjamin@gmail.com|peter@gmail.com|hans@gmail.com|ahmad@gmail.com|sana@gmail.com|virgeen@gmail.com|mohammed@gmail.com";
+const allEmailsArray = allEmails.split("|");
+
+for (let i = 0; i < allEmailsArray.length; i++) {
+  const email = allEmailsArray[i];
+  sendEmailTo(email);
+}
