@@ -5,7 +5,7 @@
   "editor.lineHeight": 24,
   "editor.letterSpacing": 0.5,
   "editor.cursorBlinking": "smooth",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 3,
   "editor.detectIndentation": false,
@@ -14,7 +14,6 @@
   "editor.wordWrap": "on",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.renderIndentGuides": true,
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
   "editor.cursorSurroundingLines": 5,
@@ -38,5 +37,6 @@
   "gitlens.mode.statusBar.alignment": "left",
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
-  }
+  },
+  "editor.guides.indentation": true
 }
