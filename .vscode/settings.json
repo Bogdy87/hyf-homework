@@ -14,7 +14,7 @@
   "editor.wordWrap": "on",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.scrollBeyondLastLine": false,
+  "editor.scrollBeyondLastLine": true,
   "editor.snippetSuggestions": "top",
   "editor.cursorSurroundingLines": 5,
   "editor.formatOnSave": true,
@@ -35,8 +35,10 @@
   "gitlens.blame.line.enabled": false,
   "gitlens.mode.statusBar.enabled": false,
   "gitlens.mode.statusBar.alignment": "left",
+  "editor.showUnused": true,
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
   },
   "editor.guides.indentation": true
+  
 }
