@@ -1,10 +1,11 @@
-// CactusIO-interactive (Smart phone usage app) optional
-
-// Adding an activity
-
 const activities = [];
+let usageLimit = 120; // Set the usage limit to 120 minutes
 
-function addActivity(date, activity, duration) {
+function addActivity(
+  activity,
+  duration,
+  date = new Date().toLocaleDateString()
+) {
   const newActivity = {
     date: date,
     activity: activity,
@@ -14,35 +15,57 @@ function addActivity(date, activity, duration) {
   activities.push(newActivity);
 }
 
-addActivity("23/7-18", "YouTube", 30);
-console.log(activities);
-
-// Show my status
-// Create a function called showStatus. This function should use the activities variable and return a string saying the following: "You have added 3 activities. They amount to 78 min. of usage"
-
 function calculateTotalDuration(total, activity) {
   return total + activity.duration;
 }
 
-function showStatus(activities) {
-  if (activities.length === 0) {
-    return "Add some activities before calling showStatus";
+function showStatus(date = new Date().toLocaleDateString()) {
+  const filteredActivities = activities.filter(
+    (activity) => activity.date === date
+  );
+
+  if (filteredActivities.length === 0) {
+    return `No activities found for ${date}`;
   }
 
-  let totalActivities = activities.length;
-  let totalDuration = activities.reduce(calculateTotalDuration, 0);
+  let totalActivities = filteredActivities.length;
+  let totalDuration = filteredActivities.reduce(calculateTotalDuration, 0);
 
-  return `You have added ${totalActivities} activities. They amount to ${totalDuration} min. of usage`;
+  return `You have added ${totalActivities} activities for ${date}. They amount to ${totalDuration} min. of usage`;
 }
 
-// Test with non-empty activities array
-addActivity("23/7-18", "YouTube", 30);
-addActivity("23/7-18", "Reading", 20);
-addActivity("23/7-18", "Exercise", 28);
-console.log(showStatus(activities)); // "You have added 3 activities. They amount to 78 min. of usage"
+function mostTimeSpentActivity() {
+  if (activities.length === 0) {
+    return "No activities recorded yet";
+  }
 
-// Test with empty activities array
-activities.length = 0; // Clear the activities array
-console.log(showStatus(activities)); // "Add some activities before calling showStatus"
+  const activitiesByType = {};
+  activities.forEach((activity) => {
+    if (!activitiesByType[activity.activity]) {
+      activitiesByType[activity.activity] = 0;
+    }
+    activitiesByType[activity.activity] += activity.duration;
+  });
 
-// Usage limit
+  const maxTime = Math.max(...Object.values(activitiesByType));
+  const mostTimeSpentActivity = Object.keys(activitiesByType).find(
+    (key) => activitiesByType[key] === maxTime
+  );
+
+  return `You have spent the most time on ${mostTimeSpentActivity} (${maxTime} min)`;
+}
+
+// Test addActivity with auto-detecting date
+addActivity("YouTube", 30);
+addActivity("Reading", 20);
+addActivity("Exercise", 28);
+addActivity("Gaming", 50, "23/7-18"); // Specify a date
+
+// Test showStatus with specific date
+console.log(showStatus()); // Show activities for today
+console.log(showStatus("23/7-18")); // Show activities for a specific date
+
+// Test mostTimeSpentActivity
+console.log(mostTimeSpentActivity());
+
+//  ***********The last part is resolved with chat GPT. It's too  difficult for me to understand this.**************
