@@ -25,9 +25,8 @@ const seriesDurations = [
 function calculateTotalTime(seriesDurations) {
   let totalTimeMinutes = 0;
   for (let i = 0; i < seriesDurations.length; i++) {
-    const series = seriesDurations[i];
-    const totalSeriesMinutes =
-      series.days * 24 * 60 + series.hours * 60 + series.minutes;
+    const { title, days, hours, minutes } = seriesDurations[i];
+    const totalSeriesMinutes = days * 24 * 60 + hours * 60 + minutes;
     totalTimeMinutes += totalSeriesMinutes;
   }
   return totalTimeMinutes;
@@ -39,22 +38,18 @@ function calculatePercentageOfLife(totalTimeMinutes) {
   return (totalTimeMinutes / averageLifespanMinutes) * 100;
 }
 
-// Function that logs out the  text using the seriesDurations array
-
+// Function that logs out the text using the seriesDurations array
 function logOutSeriesText(seriesDurations) {
   const totalTimeMinutes = calculateTotalTime(seriesDurations);
   const totalPercentage = calculatePercentageOfLife(totalTimeMinutes);
 
   console.log("Here are the percentages of your life spent watching series:");
   for (let i = 0; i < seriesDurations.length; i++) {
-    const series = seriesDurations[i];
-    const totalSeriesMinutes =
-      series.days * 24 * 60 + series.hours * 60 + series.minutes;
+    const { title, days, hours, minutes } = seriesDurations[i];
+    const totalSeriesMinutes = days * 24 * 60 + hours * 60 + minutes;
     const seriesPercentage =
       (totalSeriesMinutes / totalTimeMinutes) * totalPercentage;
-    console.log(
-      `${series.title} took ${seriesPercentage.toFixed(3)}% of your life`
-    );
+    console.log(`${title} took ${seriesPercentage.toFixed(3)}% of your life`);
   }
   console.log(`In total that is ${totalPercentage.toFixed(3)}% of your life`);
 }

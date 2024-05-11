@@ -12,7 +12,7 @@ function addActivity(
     duration: duration,
   };
 
-  activities.push(newActivity);
+  activities.push({ date, activity, duration });
 }
 
 function calculateTotalDuration(total, activity) {
@@ -24,12 +24,13 @@ function showStatus(date = new Date().toLocaleDateString()) {
     (activity) => activity.date === date
   );
 
+  const totalActivities = filteredActivities.length;
+
   if (filteredActivities.length === 0) {
     return `No activities found for ${date}`;
   }
 
-  let totalActivities = filteredActivities.length;
-  let totalDuration = filteredActivities.reduce(calculateTotalDuration, 0);
+  const totalDuration = filteredActivities.reduce(calculateTotalDuration, 0);
 
   return `You have added ${totalActivities} activities for ${date}. They amount to ${totalDuration} min. of usage`;
 }
@@ -40,19 +41,18 @@ function mostTimeSpentActivity() {
   }
 
   const activitiesByType = {};
-  activities.forEach((activity) => {
-    if (!activitiesByType[activity.activity]) {
-      activitiesByType[activity.activity] = 0;
+  activities.forEach(({ activity, duration }) => {
+    if (!activitiesByType[activity]) {
+      activitiesByType[activity] = 0;
     }
-    activitiesByType[activity.activity] += activity.duration;
+    activitiesByType[activity] += duration;
   });
 
-  const maxTime = Math.max(...Object.values(activitiesByType));
-  const mostTimeSpentActivity = Object.keys(activitiesByType).find(
-    (key) => activitiesByType[key] === maxTime
+  const sortedActivities = Object.entries(activitiesByType).sort(
+    (a, b) => b[1] - a[1]
   );
 
-  return `You have spent the most time on ${mostTimeSpentActivity} (${maxTime} min)`;
+  return `You have spent the most time on ${sortedActivities[0][0]} (${sortedActivities[0][1]} min)`;
 }
 
 // Test addActivity with auto-detecting date
@@ -68,4 +68,4 @@ console.log(showStatus("23/7-18")); // Show activities for a specific date
 // Test mostTimeSpentActivity
 console.log(mostTimeSpentActivity());
 
-//  ***********The last part is resolved with chat GPT. It's too  difficult for me to understand this.**************
+//  ***********The last part is resolved with chat GPT. It comes too complicated to understand this.**************
